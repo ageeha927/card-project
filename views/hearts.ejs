@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Hearts</title>
+</head>
+<body>
+    <h1>Hearts</h1>
+    <h2>Round <%= round %></h2>
+    <h3>Scores</h3>
+    <div>
+        <% scores.forEach((score, index) => { %>
+            <p>Player <%= index + 1 %>: <%= score %> points</p>
+        <% }) %>
+    </div>
+    <% playerHands.forEach((hand, index) => { %>
+        <h2>Player <%= index + 1 %> Hand</h2>
+        <div>
+            <% hand.forEach((card, cardIndex) => { %>
+                <form action="/hearts/play" method="POST" style="display:inline;">
+                    <input type="hidden" name="playerIndex" value="<%= index %>">
+                    <input type="hidden" name="cardIndex" value="<%= cardIndex %>">
+                    <button type="submit">
+                        <img src="<%= card.image %>" alt="<%= card.value %> of <%= card.suit %>">
+                    </button>
+                </form>
+            <% }) %>
+        </div>
+    <% }) %>
+    <% if (trickWinner !== null) { %>
+        <h2>Trick Winner: Player <%= trickWinner + 1 %></h2>
+        <p>Hearts broken: <%= heartsBroken ? "Yes" : "No" %></p>
+    <% } %>
+    <% if (round > 5) { %>
+        <h3>Game Over! Final Scores:</h3>
+        <div>
+            <% scores.forEach((score, index) => { %>
+                <p>Player <%= index + 1 %>: <%= score %> points</p>
+            <% }) %>
+        </div>
+        <form action="/hearts/reset" method="POST">
+            <button type="submit">Play Again</button>
+        </form>
+    <% } %>
+</body>
+</html>

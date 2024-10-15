@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Blackjack</title>
+</head>
+<body>
+    <h1>Blackjack</h1>
+    <h2>Round <%= round %></h2>
+    <h3>Your Score: <%= playerScore %> | Dealer's Score: <%= dealerScore %></h3>
+    
+    <div>
+        <h2>Your Hand</h2>
+        <% playerHand.forEach(card => { %>
+            <img src="<%= card.image %>" alt="<%= card.value %> of <%= card.suit %>">
+        <% }) %>
+    </div>
+
+    <div>
+        <h2>Dealer's Hand</h2>
+        <% dealerHand.forEach((card, index) => { %>
+            <% if (index === 0 || gameStatus !== 'playing') { %>
+                <img src="<%= card.image %>" alt="<%= card.value %> of <%= card.suit %>">
+            <% } else { %>
+                <img src="https://deckofcardsapi.com/static/img/2C.png" alt="Hidden Card">
+            <% } %>
+        <% }) %>
+    </div>
+
+    <% if (gameStatus === 'playing') { %>
+        <form action="/blackjack/hit" method="POST">
+            <button type="submit">Hit</button>
+        </form>
+        <form action="/blackjack/stand" method="POST">
+            <button type="submit">Stand</button>
+        </form>
+    <% } else { %>
+        <h2><%= gameStatus.charAt(0).toUpperCase() + gameStatus.slice(1) %></h2>
+        <% if (typeof final !== 'undefined' && final) { %>
+            <h3>Game Over! Final Score: You <%= playerScore %> - Dealer <%= dealerScore %></h3>
+            <form action="/blackjack/reset" method="POST">
+                <button type="submit">Play Again</button>
+            </form>
+        <% } %>
+    <% } %>
+    
+    <!-- Reset Button for New Game -->
+    <form action="/blackjack/reset" method="POST">
+        <button type="submit">Reset Game</button>
+    </form>
+</body>
+</html>
+
