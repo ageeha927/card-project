@@ -4,14 +4,31 @@ body {
     text-align: center;
 }
 
+@font-face {
+    font-family: Casino;
+    src: url(./casino.3d-regular.ttf)
+}
+
+*{
+    bottom: 2vh;
+}
+
 h1, h2, h3 {
     color: #333;
 }
 
+h1{
+    font-family: Casino;
+    font-size: 4em;
+    color: rgb(0, 0, 0);
+}
+
 img {
     width: 100px;
-    height: auto;
+    height: 150px;
     margin: 5px;
+    border: 1px solid #000000; 
+    border-radius: 5%;
 }
 
 form {

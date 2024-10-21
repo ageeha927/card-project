@@ -22,7 +22,7 @@
             <% if (index === 0 || gameStatus !== 'playing') { %>
                 <img src="<%= card.image %>" alt="<%= card.value %> of <%= card.suit %>">
             <% } else { %>
-                <img src="https://deckofcardsapi.com/static/img/2C.png" alt="Hidden Card">
+                <img src="https://i.pinimg.com/enabled/564x/cd/07/1a/cd071aad27f38741ecc4a090f214a5f0.jpg" alt="Hidden Card">
             <% } %>
         <% }) %>
     </div>
@@ -44,7 +44,6 @@
         <% } %>
     <% } %>
     
-    <!-- Reset Button for New Game -->
     <form action="/blackjack/reset" method="POST">
         <button type="submit">Reset Game</button>
     </form>
