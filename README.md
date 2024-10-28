@@ -45,20 +45,11 @@ This project is a web-based implementation of two classic card games: Blackjack 
 
 3. **Asynchronous Gameplay**: Handling user interactions and updating the game state asynchronously, especially for the War game where multiple rounds are played.
 
-4. **User Interface**: Creating an intuitive and responsive interface that works well for both desktop and mobile devices.
+4. **User Interface**: Creating an intuitive and responsive interface that works well for  desktop.
 
 5. **Game Logic**: Implementing the correct rules for each game, including special cases like "wars" in the War game and the dual nature of Aces in Blackjack.
 
 6. **Error Handling**: Ensuring the games can handle unexpected user actions or server errors gracefully.
-
-7. **Performance**: Optimizing the games to handle multiple concurrent players without significant lag.
-
-## Future Improvements
-
-- Add multiplayer functionality
-- Implement more advanced Blackjack strategies (splitting, doubling down)
-- Create a user account system to track wins and losses
-- Add more card games to the collection
 
 ## Technologies Used
 
@@ -67,4 +58,3 @@ This project is a web-based implementation of two classic card games: Blackjack 
 - EJS (for view templating)
 - HTML/CSS for frontend styling
 
-Feel free to contribute to this project by submitting pull requests or opening issues for any bugs or feature requests!
