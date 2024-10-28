@@ -2,6 +2,11 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     text-align: center;
+    background-image: url(./20654.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: -20rem;
+    overflow: hidden;
 }
 
 @font-face {
@@ -33,4 +38,10 @@ img {
 
 form {
     display: inline;
+}
+
+button{
+    background-color: #000000;
+    color: white;
+    border-radius: 20%;
 }

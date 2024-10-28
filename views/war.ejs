@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/war.css">
+    <title>War</title>
+</head>
+<body>
+    <h1>War</h1>
+    <h2>Round <%= round %></h2>
+    <h3>Your Score: <%= playerScore %> | Dealer's Score: <%= dealerScore %></h3>
+
+    <div>
+        <h2>Your Card</h2>
+        <% if (playerCard) { %>
+            <img src="<%= playerCard.image %>" alt="<%= playerCard.value %> of <%= playerCard.suit %>">
+            <p><%= playerCard.value %> of <%= playerCard.suit %></p>
+        <% } %>
+    </div>
+
+    <div>
+        <h2>Dealer's Card</h2>
+        <% if (dealerCard) { %>
+            <img src="<%= dealerCard.image %>" alt="<%= dealerCard.value %> of <%= dealerCard.suit %>">
+            <p><%= dealerCard.value %> of <%= dealerCard.suit %></p>
+        <% } %>
+    </div>
+
+    <% if (gameStatus === 'playing') { %>
+        <form action="/war/next" method="POST">
+            <button type="submit">Next Round</button>
+        </form>
+    <% } else { %>
+        <h2><%= gameStatus %></h2>
+        <h3>Game Over! Final Score: You <%= playerScore %> - Dealer <%= dealerScore %></h3>
+        <form action="/war/reset" method="POST">
+            <button type="submit">Play Again</button>
+        </form>
+    <% } %>
+    
+    <form action="/war/reset" method="POST">
+        <button type="submit">RESET GAME</button>
+    </form>
+</body>
+</html>
